@@ -614,7 +614,16 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
   }
   function navigate(n){
     if(n<0){openIntro(true);return}
-    step=Math.max(0,Math.min(4,n));
+    const nextStep=Math.max(0,Math.min(4,n));
+    // Capture before step 4 hides the 3D canvas: a hidden canvas measures 0x0.
+    // The old ordering resized that hidden canvas to 1px, causing an empty/broken report image.
+    let report3dImage="";
+    let reportTopImage="";
+    if(nextStep===4){
+      try{report3dImage=expo3DSnapshot()}catch(error){console.warn("FIT BOX 3D snapshot failed",error)}
+      try{reportTopImage=expoTopViewSnapshot()}catch(error){console.warn("FIT BOX top-view snapshot failed",error)}
+    }
+    step=nextStep;
     document.body.dataset.expoStep=String(step);
     document.getElementById("expo-count").textContent=String(step+1).padStart(2,"0")+" / 05 · EXPERIENCE";
     document.getElementById("expo-step-title").textContent=labels[step][0];
@@ -622,13 +631,15 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
     document.getElementById("expo-dots").innerHTML=labels.map(function(_,i){return '<span class="expo-dot'+(i<=step?' active':'')+'"></span>'}).join("");
     document.getElementById("expo-next").textContent=step===0?"직교 탑뷰 배치하기 →":"목표 공간비율 설정하기 →";
     if(step===4){
-      const image3d=expo3DSnapshot();
-      const topImage=expoTopViewSnapshot();
-      activateTab("report",{topViewImage:topImage});
+      activateTab("report",{topViewImage:reportTopImage});
       const primary=document.getElementById("expo-report-3d");
-      if(image3d)primary.src=image3d;
+      if(report3dImage) primary.src=report3dImage;
+      else {
+        primary.removeAttribute("src");
+        primary.alt="3D 모델 이미지 생성에 실패했습니다. 이전 단계에서 3D 모델을 확인한 후 다시 진행해 주세요.";
+      }
       const top=document.getElementById("report-preview-image");
-      top.src=topImage;
+      if(reportTopImage) top.src=reportTopImage;
     }
     else {activateTab("design");}
     if(step===1 || step===3)requestAnimationFrame(function(){resize();resize3D();requestAnimationFrame(function(){resize();resize3D()})});
