@@ -216,7 +216,10 @@ body{background:#f3f8f5}
 .intro-screen .intro-nav{min-height:100px}
 .intro-screen .intro-logo{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
 .expo-identity,.expo-puru{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#176b55}
-.expo-identity img{max-width:95px;height:52px;object-fit:contain}
+.expo-identity{background:transparent!important;border:0!important;box-shadow:none!important}
+.expo-identity img{max-width:110px;height:62px;object-fit:contain;background:transparent!important;mix-blend-mode:multiply}
+.expo-puru{background:transparent!important;border:0!important}
+.expo-puru img{height:68px;max-width:90px;object-fit:contain}
 .expo-puru img{max-width:110px;height:62px;object-fit:contain}
 .expo-next-bar{width:min(640px,calc(100% - 28px));gap:10px}
 .expo-next-bar #expo-back{pointer-events:auto;align-self:stretch;flex:0 0 39%;padding:10px;border:1px solid #b4d0c1;border-radius:15px;background:#fff;color:#176b55;font-size:15px;font-weight:900;box-shadow:0 8px 28px rgba(22,84,60,.13)}
@@ -525,7 +528,7 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
   const heroTitle=intro.querySelector("#intro-title");
   if(heroTitle)heroTitle.innerHTML="FIT BOX로<br><span>포장 설계 체험하기</span>";
   const brand=intro.querySelector(".intro-logo");
-  if(brand)brand.innerHTML='<span class="expo-identity"><img src="https://www.keco.or.kr/images/new/web/sub/symbol_signature_03.png" alt="K-eco" onerror="this.style.display=\'none\'"><strong>K-eco</strong></span><strong>FIT BOX</strong><span class="expo-puru"><img src="https://www.keco.or.kr/images/new/web/sub/mascot_01.png" alt="한국환경공단 마스코트 푸루" onerror="this.style.display=\'none\'"><span>푸루</span></span>';
+  if(brand)brand.innerHTML='<span class="expo-identity"><img src="https://www.keco.or.kr/images/new/web/sub/symbol_signature_03.png" alt="한국환경공단 로고" onerror="this.style.display=\'none\'"></span><strong>FIT BOX</strong><span class="expo-puru"><img src="../fitbox-chatbot-character.png" alt="푸루 캐릭터"></span>';
   const stories=intro.querySelectorAll(".intro-story");
   if(stories.length===4){
     stories[0].querySelector("h2").innerHTML="제품정보를 간단히<br>입력하세요";
