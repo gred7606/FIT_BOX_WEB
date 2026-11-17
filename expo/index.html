@@ -211,6 +211,23 @@ body{background:#f3f8f5}
 #fit-box-app #report-page .expo-report-desc{color:#64796e;font-size:13px;margin:5px 0 14px}
 @media(min-width:851px){#fit-box-app #report-page .report-preview-grid{grid-template-columns:minmax(0,1.5fr) minmax(280px,.85fr)}}
 
+
+/* Expo 2026-11-16 feedback */
+.intro-screen .intro-nav{min-height:100px}
+.intro-screen .intro-logo{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.expo-identity,.expo-puru{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#176b55}
+.expo-identity img{max-width:95px;height:52px;object-fit:contain}
+.expo-puru img{max-width:110px;height:62px;object-fit:contain}
+.expo-next-bar{width:min(640px,calc(100% - 28px));gap:10px}
+.expo-next-bar #expo-back{pointer-events:auto;align-self:stretch;flex:0 0 39%;padding:10px;border:1px solid #b4d0c1;border-radius:15px;background:#fff;color:#176b55;font-size:15px;font-weight:900;box-shadow:0 8px 28px rgba(22,84,60,.13)}
+.expo-next-bar #expo-next{min-width:0;flex:1}
+.expo-next-bar #expo-next[hidden]{display:none}
+#fit-box-app .product-head .remove{min-width:42px;min-height:42px;border:1px solid #e8c1ba;border-radius:11px;background:#fff0ed;color:#a43832;font-size:20px}
+#fit-box-app .product-head .remove:hover{background:#bc4138;color:#fff}
+[data-expo-step="2"] .expo-next-bar,[data-expo-step="3"] .expo-next-bar,[data-expo-step="4"] .expo-next-bar{display:flex}
+[data-expo-step="3"] #fit-box-app .expo-report-action{display:none}
+@media(max-width:560px){.expo-identity img{height:36px;max-width:70px}.expo-puru img{height:40px;max-width:65px}.expo-next-bar #expo-back{font-size:12px;flex-basis:35%}.expo-next-bar #expo-next{font-size:13px;padding:10px 5px}}
+
 </style>
 </head>
 <body>
@@ -231,7 +248,7 @@ body{background:#f3f8f5}
       </section>
 
       <section class="panel stage-panel" aria-labelledby="stage-title">
-        <div class="stage-top"><div class="stage-heading"><p class="eyebrow">02 · Top View</p><div class="title-with-help"><h2 id="stage-title">직교 탑뷰 제품 배치</h2><span class="context-help"><button type="button" class="context-help-button" aria-label="탑뷰 도움말" aria-describedby="top-view-help">?</button><span class="tooltip-card" id="top-view-help" role="tooltip"><strong>탑뷰 제품 배치</strong><p>제품을 드래그해 위치를 조정하세요. 제품끼리 겹치거나 상자 밖으로 나가면 충돌 상태로 표시됩니다.</p></span></span></div><div class="stage-dimensions" aria-label="상자 치수"><span class="stage-dimension">안치수 <strong id="top-inner-dims">—</strong></span><span class="stage-dimension outer">외부치수 <strong id="top-outer-dims">—</strong></span></div></div><div class="stage-tools"><div class="legend"><span><i class="dot product-dot"></i>제품</span><span><i class="dot space-dot"></i>완충 여유</span><span><i class="dot wall-dot"></i>상자 벽</span></div></div></div>
+        <div class="stage-top"><div class="stage-heading"><p class="eyebrow">02 · Top View</p><div class="title-with-help"><h2 id="stage-title">제품 배치하기</h2><span class="context-help"><button type="button" class="context-help-button" aria-label="탑뷰 도움말" aria-describedby="top-view-help">?</button><span class="tooltip-card" id="top-view-help" role="tooltip"><strong>탑뷰 제품 배치</strong><p>제품을 드래그해 위치를 조정하세요. 제품끼리 겹치거나 상자 밖으로 나가면 충돌 상태로 표시됩니다.</p></span></span></div><div class="stage-dimensions" aria-label="상자 치수"><span class="stage-dimension">안치수 <strong id="top-inner-dims">—</strong></span><span class="stage-dimension outer">외부치수 <strong id="top-outer-dims">—</strong></span></div></div><div class="stage-tools"><div class="legend"><span><i class="dot product-dot"></i>제품</span><span><i class="dot space-dot"></i>완충 여유</span><span><i class="dot wall-dot"></i>상자 벽</span></div></div></div>
         <div class="canvas-wrap" data-tour="top-view"><button type="button" class="fullscreen-button" data-fullscreen-target=".canvas-wrap">⛶ 탑뷰 전체보기</button><canvas id="stage" aria-label="제품을 드래그해 배치하는 고정 직교 탑뷰"></canvas><div class="canvas-note">제품을 선택·드래그해 배치하세요 · 고정 탑뷰</div></div>
         <section class="view3d-section" data-tour="3d-view" aria-labelledby="view3d-title"><div class="view3d-head"><div><div class="title-with-help"><strong id="view3d-title">회전 가능한 3D 배치</strong><span class="context-help"><button type="button" class="context-help-button" aria-label="3D 배치 도움말" aria-describedby="view3d-help">?</button><span class="tooltip-card" id="view3d-help" role="tooltip"><strong>3D 배치 조작</strong><p>드래그해 회전하고 휠 또는 핀치로 확대·축소합니다. 투명 뚜껑을 열고 닫아 내부 제품 배치를 확인할 수 있습니다.</p></span></span></div><span>탑뷰와 동일한 상자·제품·완충 여유 및 투명 뚜껑을 표시합니다.</span></div><div class="view3d-actions"><button type="button" id="toggle-lid" aria-pressed="true">뚜껑 닫기</button><button type="button" id="reset-3d">3D 시점 초기화</button><button type="button" class="fullscreen-button" data-fullscreen-target=".view3d-section">⛶ 3D 전체보기</button></div></div><div class="view3d-wrap"><canvas id="stage3d" role="img" aria-label="마우스 또는 한 손가락으로 회전하고 휠 또는 두 손가락으로 확대 축소하며 투명 뚜껑을 열고 닫을 수 있는 포장 3D 배치"></canvas><div class="view3d-note">드래그: 회전 · 휠/핀치: 확대·축소 · 버튼: 투명 뚜껑 열기/닫기</div></div></section>
         <div class="metrics"><div class="metric"><span>상자 안치수 A × B × H</span><strong id="box-metric">220 × 160 × 100</strong><small>mm</small></div><div class="metric"><span>보정 포장용적 C</span><strong id="capacity-metric">—</strong><small>cm³</small></div><div class="metric"><span>가산 제품체적 ΣV</span><strong id="volume-metric">—</strong><small>cm³</small></div></div>
@@ -268,7 +285,7 @@ body{background:#f3f8f5}
   </section>
   <script src="../material-assessment-data-v6.3.js"></script>
   <script>
-    const state={products:[{id:1,name:'제품 1',a:170,b:110,c:70,qty:1,cushion:true,orientation:'vertical',x:.5,y:.5,positions:[{x:.5,y:.5}]}],box:{A:250,B:250,H:100},boxLocks:{A:false,B:false,H:false},t:5,mode:'basic',targetRatio:18,nextId:2,recommendation:null,statusKind:null,selectedId:1,invalidIds:new Set(),postMatch:null,autoMessage:null};
+    const state={products:[{id:1,name:'제품',a:170,b:110,c:70,qty:1,cushion:true,orientation:'vertical',x:.5,y:.5,positions:[{x:.5,y:.5}]}],box:{A:250,B:250,H:100},boxLocks:{A:false,B:false,H:false},t:5,mode:'basic',targetRatio:18,nextId:2,recommendation:null,statusKind:null,selectedId:1,invalidIds:new Set(),postMatch:null,autoMessage:null};
     const STORAGE_KEY='fit-box-expo-state-v1',NAMED_STORAGE_KEY='fit-box-expo-named-v1',INTRO_STORAGE_KEY='fit-box-expo-intro-seen-v1',validOrientations=new Set(['vertical','horizontal-a','horizontal-b']);let saveTimer=null;
     function savedNumber(value,min,max,fallback){const n=Number(value);return Number.isFinite(n)?Math.min(max,Math.max(min,n)):fallback}
     function productQuantity(p){return Math.min(50,Math.max(1,Math.round(Number(p&&p.qty)||1)))}
@@ -345,7 +362,7 @@ body{background:#f3f8f5}
     function updateFullscreenButtons(){document.querySelectorAll('[data-fullscreen-target]').forEach(button=>{const target=document.querySelector(button.dataset.fullscreenTarget),active=target&&document.fullscreenElement===target;button.textContent=active?'⊠ 전체보기 닫기':button.dataset.fullscreenTarget==='.canvas-wrap'?'⛶ 탑뷰 전체보기':'⛶ 3D 전체보기';button.setAttribute('aria-pressed',String(active))});requestAnimationFrame(()=>{resize();resize3D()})}
     function syncControlsFromState(){$('#thickness').value=state.t;$('#thickness-range').value=state.t;$('#target-ratio').value=state.targetRatio;$('#target-ratio-value').textContent=`${state.targetRatio}%`;document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===state.mode));document.querySelectorAll('[data-lock-dim]').forEach(input=>input.checked=!!state.boxLocks[input.dataset.lockDim]);updateModeDescription()}
     function bind(){list.addEventListener('input',e=>{const row=e.target.closest('.product');if(!row)return;const p=state.products.find(x=>x.id===+row.dataset.id),k=e.target.dataset.key;if(k==='cushion')p[k]=e.target.checked;else if(k==='name')p[k]=e.target.value;else if(k==='qty'){p.qty=Math.min(50,Math.max(1,Math.round(+e.target.value||1)));normalizeProductPositions(p);e.target.value=p.qty}else{const v=Number(e.target.value);if(e.target.value.trim()===''||!Number.isFinite(v)||v<=0)return;p[k]=v}state.selectedId=p.id;state.autoMessage=null;list.querySelectorAll('.product').forEach(x=>x.classList.toggle('selected',x===row));const added=row.querySelector('.added-dims');if(added){added.classList.toggle('off',!p.cushion);added.innerHTML=`${addedDimsMarkup(p)} · 수량 ${productQuantity(p)}개`}$('#product-count').textContent=totalQuantity();$('#product-count').title=`제품 종류 ${state.products.length}종 · 총 ${totalQuantity()}개`;update()});list.addEventListener('change',e=>{const row=e.target.closest('.product'),k=e.target.dataset.key;if(!row||!['a','b','c'].includes(k))return;const p=state.products.find(x=>x.id===+row.dataset.id),v=Number(e.target.value);if(e.target.value.trim()===''||!Number.isFinite(v)||v<=0)e.target.value=p[k]});list.addEventListener('click',e=>{const row=e.target.closest('.product');if(!row)return;const id=+row.dataset.id,p=state.products.find(x=>x.id===id),orientation=e.target.dataset.productOrientation;if(orientation&&p){p.orientation=orientation;state.selectedId=id;state.autoMessage=null;renderProducts();update();return}if(e.target.classList.contains('remove')){if(state.products.length===1)return;state.products=state.products.filter(p=>p.id!==id);if(state.selectedId===id)state.selectedId=state.products[0].id;state.autoMessage=null;renderProducts();update();return}state.selectedId=id;if(e.target.matches('input,label')){list.querySelectorAll('.product').forEach(x=>x.classList.toggle('selected',x===row));draw();draw3D();return}renderProducts();draw();draw3D()});
-      $('#add-product').onclick=()=>{const n=state.nextId++,x=.3+Math.random()*.35,y=.3+Math.random()*.35;state.products.push({id:n,name:`제품 ${n}`,a:80,b:60,c:40,qty:1,cushion:true,orientation:'vertical',x,y,positions:[{x,y}]});state.selectedId=n;state.autoMessage=null;renderProducts();update()};
+      $('#add-product').onclick=()=>{const n=state.nextId++,x=.3+Math.random()*.35,y=.3+Math.random()*.35;state.products.push({id:n,name:'제품',a:80,b:60,c:40,qty:1,cushion:true,orientation:'vertical',x,y,positions:[{x,y}]});state.selectedId=n;state.autoMessage=null;renderProducts();update()};
       $('#ranges').addEventListener('input',e=>{const k=e.target.dataset.dim;if(!k)return;const spec=dims.find(d=>d[0]===k),isSlider=e.target.type==='range';let v;if(isSlider){v=Math.min(spec[3],Math.max(spec[2],Math.round(Number(e.target.value)||spec[2])))}else{v=Number(e.target.value);if(e.target.value.trim()===''||!Number.isFinite(v)||v<=0)return}state.box[k]=v;if(isSlider)$(`#number-${k}`).value=v;else $(`#range-${k}`).value=Math.min(spec[3],Math.max(spec[2],v));state.autoMessage=null;update(true)});
       $('#ranges').addEventListener('change',e=>{const dim=e.target.dataset.dim;if(dim&&e.target.type==='number'){const v=Number(e.target.value);if(e.target.value.trim()===''||!Number.isFinite(v)||v<=0)e.target.value=state.box[dim];return}const k=e.target.dataset.lockDim;if(!k)return;state.boxLocks[k]=e.target.checked;e.target.closest('.range-row').classList.toggle('locked',e.target.checked);state.autoMessage=null;update()});
       document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{state.mode=b.dataset.mode;document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x===b));updateModeDescription();update()});
@@ -504,17 +521,24 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
   if(lastIntro) lastIntro.remove();
   const titleText = intro.querySelector(".intro-lead");
   if(titleText) titleText.textContent="제품 규격 입력부터 탑뷰 배치, 목표 공간비율 설정, 3D 확인과 설계 결과까지. FIT BOX를 직접 체험해 보세요.";
+
+  const heroTitle=intro.querySelector("#intro-title");
+  if(heroTitle)heroTitle.innerHTML="FIT BOX로<br><span>포장 설계 체험하기</span>";
+  const brand=intro.querySelector(".intro-logo");
+  if(brand)brand.innerHTML='<span class="expo-identity"><img src="https://www.keco.or.kr/images/new/web/sub/symbol_signature_03.png" alt="K-eco" onerror="this.style.display=\'none\'"><strong>K-eco</strong></span><strong>FIT BOX</strong><span class="expo-puru"><img src="https://www.keco.or.kr/images/new/web/sub/mascot_01.png" alt="한국환경공단 마스코트 푸루" onerror="this.style.display=\'none\'"><span>푸루</span></span>';
   const stories=intro.querySelectorAll(".intro-story");
   if(stories.length===4){
+    stories[0].querySelector("h2").innerHTML="제품정보를 간단히<br>입력하세요";
+    stories[2].querySelector("h2").innerHTML="포장공간비율을<br>설정할 수 있어요";
     stories[0].querySelector("p:last-child").textContent="제품 규격과 수량을 입력하면 필요한 포장 치수가 계산됩니다.";
     stories[1].querySelector("p:last-child").textContent="상자를 위에서 바라보며 제품을 직접 움직여 배치할 수 있습니다.";
     stories[2].querySelector("p:last-child").textContent="목표 공간비율을 설정하고 알맞은 상자를 자동 배치해 보세요.";
-    stories[3].querySelector("h2").innerHTML="3D로 확인하고<br>결과를 한눈에";
+    stories[3].querySelector("h2").innerHTML="3D로 결과를<br>한눈에";
     stories[3].querySelector("p:last-child").textContent="3D 상자를 자유롭게 돌려보고 확정된 설계 결과를 확인합니다.";
   }
   const labels=[
     ["제품 정보 입력","제품 규격과 수량을 입력해 주세요"],
-    ["직교 탑뷰 제품 배치","제품을 드래그해 상자 안에 배치해 주세요"],
+    ["제품 배치하기","제품을 드래그해 상자 안에 배치해 주세요"],
     ["목표 공간비율 설정","원하는 목표 공간비율을 정해 주세요"],
     ["3D 모델링 확인","3D 모델을 돌려보며 상자의 변화를 확인해 주세요"],
     ["설계 결과 요약","확정된 상자의 설계 결과를 확인해 주세요"]
@@ -528,6 +552,7 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
   nextBar.className="expo-next-bar";
   nextBar.innerHTML='<button type="button" id="expo-next">다음 단계 →</button>';
   app.appendChild(nextBar);
+  nextBar.insertBefore(document.getElementById("expo-back"),nextBar.firstChild);
   const tabs=document.createElement("div");
   tabs.className="expo-product-tabs";
   tabs.id="expo-product-tabs";
@@ -550,6 +575,7 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
   report.appendChild(restart);
   let step=0;
   function syncProductTabs(){
+    state.products.forEach(p=>{if(/^제품\s*\d+$/u.test(p.name))p.name="제품"});
     const selected=state.selectedId;
     tabs.querySelectorAll(".expo-tab").forEach(b=>b.remove());
     state.products.forEach((p,i)=>{
@@ -565,6 +591,9 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
       const opts=row.querySelector(".product-options");
       const remove=head&&head.querySelector(".remove");
       if(!head||!opts||!remove)return;
+      remove.textContent="🗑";
+      remove.title="이 제품 삭제";
+      remove.setAttribute("aria-label","제품 삭제");
       const qty=opts.querySelector(".quantity-field"),cushion=opts.querySelector(".cushion-check");
       if(qty)head.insertBefore(qty,remove);
       if(cushion)head.insertBefore(cushion,remove);
@@ -629,7 +658,8 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
     document.getElementById("expo-step-title").textContent=labels[step][0];
     document.getElementById("expo-help").textContent=labels[step][1];
     document.getElementById("expo-dots").innerHTML=labels.map(function(_,i){return '<span class="expo-dot'+(i<=step?' active':'')+'"></span>'}).join("");
-    document.getElementById("expo-next").textContent=step===0?"직교 탑뷰 배치하기 →":"목표 공간비율 설정하기 →";
+    document.getElementById("expo-next").textContent=["제품 배치하기 →","목표 공간비율 설정하기 →","자동 배치하고 3D 보기 →","결과보고서 보기 →",""][step];
+    document.getElementById("expo-next").hidden=step===4;
     if(step===4){
       activateTab("report",{topViewImage:reportTopImage});
       const primary=document.getElementById("expo-report-3d");
@@ -646,7 +676,7 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
     window.scrollTo({top:0,behavior:"instant"});
   }
   document.getElementById("expo-back").onclick=function(){navigate(step-1)};
-  document.getElementById("expo-next").onclick=function(){navigate(step+1)};
+  document.getElementById("expo-next").onclick=function(){if(step===2){auto.click();return}navigate(step+1)};
   reportButton.onclick=function(){navigate(4)};
   const auto=document.getElementById("auto-pack");
   auto.onclick=function(){
