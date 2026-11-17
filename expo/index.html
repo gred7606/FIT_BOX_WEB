@@ -606,7 +606,7 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
     state.products.forEach(p=>{if(/^제품\s*\d+$/u.test(p.name))p.name="제품"});
     originalRender();syncProductTabs()
   };
-  syncProductTabs();
+  renderProducts();
   productList.addEventListener("input",function(){requestAnimationFrame(syncProductTabs)});
   productList.addEventListener("click",function(){requestAnimationFrame(syncProductTabs)});
 
