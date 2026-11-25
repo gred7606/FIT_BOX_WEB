@@ -695,8 +695,32 @@ function productionGeometry(){const {A,B,H}=state.box,t=state.t,L=Math.max(A,B),
   };
   start.onclick=function(){closeIntro(false);navigate(0)};
   restart.onclick=function(){
-    try{localStorage.removeItem(STORAGE_KEY)}catch(e){}
-    window.location.reload();
+    // Reset the entire visitor session before returning to the introduction.
+    // Updating the in-memory state matters because pagehide autosaves state.
+    clearTimeout(saveTimer);
+    state.products=[{id:1,name:'제품',a:170,b:110,c:70,qty:1,cushion:true,orientation:'vertical',x:.5,y:.5,positions:[{x:.5,y:.5}]}];
+    state.box={A:400,B:400,H:100};
+    state.boxLocks={A:false,B:false,H:false};
+    state.t=5;
+    state.mode='basic';
+    state.targetRatio=18;
+    state.nextId=2;
+    state.recommendation=null;
+    state.statusKind=null;
+    state.selectedId=1;
+    state.invalidIds=new Set();
+    state.postMatch=null;
+    state.autoMessage=null;
+    view3d={yaw:-Math.PI/4,pitch:.58,zoom:.92};
+    lidProgress=1;
+    lidTarget=1;
+    renderProducts();
+    renderRanges();
+    syncControlsFromState();
+    update();
+    saveStateNow();
+    navigate(0);
+    openIntro(true);
   };
   const introSections=Array.from(intro.querySelectorAll(".intro-scroll-section"));
   let introIndex=0;
